@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Aifbayp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>AIFBAYP</title>
+
+<!--// Stylesheets //-->
+<%= stylesheet_link_tag "style", :media => "all" %>
+<%= stylesheet_link_tag "color", :media => "all" %>
+<!--[if IE 8 ]><%= stylesheet_link_tag "iefix", :media => "all" %><![endif]-->
+
+<!--// Javascripts //-->
+<%= javascript_include_tag "jquery.min" %>
+<%= javascript_include_tag "animatedcollapse" %>
+<%= javascript_include_tag "ddsmoothmenu" %>
+<%= javascript_include_tag "jquery.nivo.slider" %>
+<%= javascript_include_tag "ddsmoothmenu" %>
+<%= javascript_include_tag "jquery.infinite-carousel" %>
+<%= javascript_include_tag "scrolltopcontrol" %>
+<%= javascript_include_tag "functions" %>
+
+<%= csrf_meta_tags %>
+
 </head>
+
 <body>
 
 <%= yield %>

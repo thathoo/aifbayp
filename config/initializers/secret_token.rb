@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Aifbayp::Application.config.secret_token = 'b080bf62f80791a632560d7559db95945553bedab1ccb28aabd05f7b1cab176b69fc43a7893a22f8472796bb5037b0d3a0f9f88067a22d07789df65d9b89a96b'
+Aifbayp4::Application.config.secret_token = 'ac5f0a1b051ef9011e59c5dfba19c8c147b560e471a0129e6398968198cc52ef944aa6edc718ec866c89a01223d3450e3159c94c0a26979d3128b00f2a6e9273'

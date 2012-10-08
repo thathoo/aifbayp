@@ -24,10 +24,6 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: simran_development
-  host: localhost
+  database: db_production
   pool: 5
-  username: simran
   timeout: 5000
-  password: secret

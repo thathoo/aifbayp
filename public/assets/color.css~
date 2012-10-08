@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* Text color */
+.colr																		{color:#FFD900 !important;}
+.txthover:hover																{color:#FFD900 !important;}
+.backcolr																	{background-color:#FFD900 !important;}
+.backcolrhover:hover														{background-color:#FFD900 !important;}
+.backcolrdark																{background-color:#FFD900 !important; background-image:url('http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/black.png');}
+.bordercolr																	{border-color:#FFD900 !important;}
+.bordercolrover:hover														{border-color:#FFD900 !important;}
+/* Navigation */
+.ddsmoothmenu ul li ul li ul li a:hover										{background-color:#FFD900 !important;}
+.ddsmoothmenu ul li a:hover, 
+.ddsmoothmenu ul li.current-menu-item a, .ddsmoothmenu ul li a.selected 	{background-color:#FFD900;}
+
+.wp-calendar ul.dates li a:hover											{background-color:#FFD900;}
+.breadcrumb ul li a:hover													{color:#FFD900;}
+.fc-header 																	{background-color:#FFD900;}
+.fc-event-skin																{background-color:#FFD900;}
+.sermons-list ul li:hover .sermon-detail h4 a								{color:#FFD900;}

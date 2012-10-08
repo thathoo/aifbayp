@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Aifbayp::Application.load_tasks
+Aifbayp4::Application.load_tasks
