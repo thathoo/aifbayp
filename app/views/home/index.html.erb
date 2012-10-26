@@ -1,5 +1,48 @@
 <!-- <h1>Home#index</h1> -->
 <!-- <p>Find me in app/views/home/index.html.erb</p> -->
+<%=  javascript_include_tag "underscore.js" %>
+<script type="text/template" id="event-attendee">
+  <li><a href="<%%= profilesrc %>"><img src="<%%= imgsrc %>" /></a></li>
+</script>
+
+<script type="text/javascript">
+
+  var CustomFbEvents  = function(options) {
+    
+  }
+
+  var scriptLoader = function(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    script.type = 'text/javascript';
+    var head = document.getElementsByTagName('head').item(0);
+    head.appendChild(script);
+  }
+
+  var customFbEvent;
+  CustomFbEvents.prototype = {
+
+    loadAttendees: function() {
+      url = "https://graph.facebook.com/331218348435?fields=attending&access_token=AAAAAAmjr8NYBAB4XCjljtTf0choRc4S74vm1WNo1pLoGnwyUoQecAvWe57bW97yLwIxs4vZAyBkCf1Qm4ZAka23gNlj1ZCgtQQGZAeByLwZDZD"
+      $.getJSON(url, function(data) {
+        for(var i =0; i < 16; i++){
+          user_url = "https://graph.facebook.com/"+data.attending.data[i].id+"?fields=picture,link&access_token=AAAAAAmjr8NYBAB4XCjljtTf0choRc4S74vm1WNo1pLoGnwyUoQecAvWe57bW97yLwIxs4vZAyBkCf1Qm4ZAka23gNlj1ZCgtQQGZAeByLwZDZD"
+          $.getJSON(user_url, function(data) {
+            var template = $('#event-attendee').html();
+            var output = _.template(template, { profilesrc: data.link,  imgsrc: data.picture.data.url } );
+            $("#attendees").append(output);
+          });
+        }
+      });
+    }
+  }
+
+
+  $(document).ready(function(){
+    customFbEvent = new CustomFbEvents({});
+    customFbEvent.loadAttendees();
+  });
+</script>
 
 <div id="top-bar">
 	<div class="inner">
@@ -253,6 +296,7 @@
                             </h4>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo dolor at sapien luctus non venenatis dui lacinia. Phasellus viverra, orci ut lacinia varius, nibh velit bibendum ipsum, sit amet placerat quam tellus sit amet velit. Nulla nulla magna, accumsan vitae convallis pellentesque, semper faucibus lorem.quam tellus sit amet velit. Nulla nulla magna, accumsan vitae convallis pellentesque, semper faucibus lorem. Aenean commodo dolor at sapien luctus non venenatis dui lacinia. Phasellus viverra, orci ut lacinia varius, nibh velit bibendum. semper faucibus lorem. Aenean commodo dolor at sapien luctus non venenatis dui lacinia. Phasellus viverra, orci ut lacinia varius, nibh velit bibendum. 
+                                <div class="fb-like" data-href="http://aifbayp.heroku.com" data-send="false" data-width="250" data-show-faces="false"></div>
                             </p>
                             <a href="#" class="readmore">Read more</a>
                         </div>
@@ -306,22 +350,10 @@
                     <!-- Half Box End -->
                     <!-- Half Box Start -->
                     <div class="halfbox right">
-                        <h3 class="heading colr">Image Gallery</h3>
+                        <h3 class="heading colr">Attendees at our events</h3>
                         <!-- Home Page Post Start -->
                         <div class="image-gallery">
-                            <ul>
-                            	<li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr1.gif" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr2.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr3.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr4.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr5.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr6.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr7.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr8.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr9.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr10.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr11.gif" alt="" /></a></li>
-                                <li><a href="#"><img src="http://www.chimpstudio.co.uk/themeforest/church/justbelieve/images/flickr12.gif" alt="" /></a></li>
+                            <ul id="attendees">
                             </ul>
                             <a href="#" class="buttonone backcolr">View Gallery</a>
                         </div>
