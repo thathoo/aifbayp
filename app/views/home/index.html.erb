@@ -23,10 +23,10 @@
   CustomFbEvents.prototype = {
 
     loadAttendees: function() {
-      url = "https://graph.facebook.com/331218348435?fields=attending&access_token=AAAAAAmjr8NYBAB4XCjljtTf0choRc4S74vm1WNo1pLoGnwyUoQecAvWe57bW97yLwIxs4vZAyBkCf1Qm4ZAka23gNlj1ZCgtQQGZAeByLwZDZD"
+      url = "https://graph.facebook.com/331218348435?fields=attending&access_token=AAAAAAZAdnLZAcBADHPN9pM9PKoBtqNxZCgV8c5loPZBYDH4u1JfC6D6CgHgOsAbPy37ePz74V0AA2goPRENvA2kz1jiF84eyLcdtZCmFudwZDZD"
       $.getJSON(url, function(data) {
         for(var i =0; i < 16; i++){
-          user_url = "https://graph.facebook.com/"+data.attending.data[i].id+"?fields=picture,link&access_token=AAAAAAmjr8NYBAB4XCjljtTf0choRc4S74vm1WNo1pLoGnwyUoQecAvWe57bW97yLwIxs4vZAyBkCf1Qm4ZAka23gNlj1ZCgtQQGZAeByLwZDZD"
+          user_url = "https://graph.facebook.com/"+data.attending.data[i].id+"?fields=picture,link&access_token=AAAAAAZAdnLZAcBADHPN9pM9PKoBtqNxZCgV8c5loPZBYDH4u1JfC6D6CgHgOsAbPy37ePz74V0AA2goPRENvA2kz1jiF84eyLcdtZCmFudwZDZD"
           $.getJSON(user_url, function(data) {
             var template = $('#event-attendee').html();
             var output = _.template(template, { profilesrc: data.link,  imgsrc: data.picture.data.url } );

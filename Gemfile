@@ -3,7 +3,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.8'
 
 # RT : Since I have mysql, I prefer to use this
-#gem 'mysql2'
+gem 'mysql2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
